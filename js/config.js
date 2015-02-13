@@ -5,7 +5,7 @@
 var config_module = angular.module('dashboard.config', []);
 var config_data = {
     'GENERAL_CONFIG': {
-       'DOMINO_URL': 'http://192.168.1.66', //Domino DB Server
+       'DOMINO_URL': 'http://virtualplace.co.uk', //Domino DB Server
         'VERSION':'1.0'
     }
 }
