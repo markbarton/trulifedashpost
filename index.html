@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="dashboard" ng-controller="HomeController">
+
+<form class="form-horizontal" style="width:600px">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Form Name</legend>
+
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="radios">Report Type</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="radios" ng-model="formObj.ReportType" value="ByOrder" checked="checked">
+                    By Order
+                </label>
+                <label class="radio-inline" for="radios-1">
+                    <input type="radio" name="radios"  ng-model="formObj.ReportType" value="ByHospital">
+                    By Hospital
+                </label>
+                <label class="radio-inline" for="radios-2">
+                    <input type="radio" name="radios"  ng-model="formObj.ReportType" value="ByOrthotist">
+                    By Othodist
+                </label>
+            </div>
+        </div>
+
+        <!-- Multiple Radios -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="radios2">Summary</label>
+            <div class="col-md-4">
+                <div class="radio">
+                    <label for="radios-0">
+                        <input type="radio" name="radios2" id="radios-0" value="Summary" ng-model="formObj.Summary" checked="checked">
+                        Summary
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="radios-1">
+                        <input type="radio" name="radios2" id="radios-1" value="Summary+" ng-model="formObj.Summary">
+                        Summary+ (only applicable for Hospital / Otho)
+                    </label>
+                </div>
+                <div class="radio">
+                    <label for="radios-2">
+                        <input type="radio" name="radios2" id="radios-2" value="All" ng-model="formObj.Summary">
+                        All
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="radios3">Date Type</label>
+            <div class="col-md-4">
+                <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="radios3" id="radios-0" value="Month" ng-model="formObj.DateType" checked="checked">
+                    Month
+                </label>
+                <label class="radio-inline" for="radios-1">
+                    <input type="radio" name="radios3" id="radios-1" ng-model="formObj.DateType" value="30Days">
+                    30 Days
+                </label>
+            </div>
+        </div>
+
+        <!-- Select Multiple -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectmultiple">Order Filter</label>
+            <div class="col-md-5">
+                <select class="form-control" multiple="multiple" ng-model="formObj.OrderFilterList">
+                    <option value="Anything else">Anything else</option>
+                    <option value="Bag Truss">Bag Truss</option>
+                    <option value="Below Knee">Below Knee</option>
+                    <option value="Belt and Corset">Belt and Corset</option>
+                    <option value="Burns Garment">Burns Garment</option>
+                    <option value="CP Garment">CP Garment</option>
+                    <option value="Everflex">Everflex</option>
+                    <option value="EverflexSBS">EverflexSBS</option>
+                    <option value="External Goods">External Goods</option>
+                    <option value="FFO">FFO</option>
+                    <option value="Footwear Adaptation">Footwear Adaptation</option>
+                    <option value="Footwear Bespoke">Footwear Bespoke</option>
+                    <option value="Footwear Paediatric">Footwear Paediatric</option>
+                    <option value="Footwear Repair">Footwear Repair</option>
+                    <option value="Footwear Select">Footwear Select</option>
+                    <option value="Gaiters">Gaiters</option>
+                    <option value="Insoles">Insoles</option>
+                    <option value="KAFO">KAFO</option>
+                    <option value="Lower Limb Orthoses">Lower Limb Orthoses</option>
+                    <option value="MTM Helmet">MTM Helmet</option>
+                    <option value="MTM Spinal Jacket">MTM Spinal Jacket</option>
+                    <option value="MTM Sure Step Comprehensive AFO">MTM Sure Step Comprehensive AFO</option>
+                    <option value="MTM Sure Step Rainier Boot">MTM Sure Step Rainier Boot</option>
+                    <option value="MTM Sure Step Standard and Pro AFO">MTM Sure Step Standard and Pro AFO</option>
+                    <option value="Session Fees">Session Fees</option>
+                    <option value="Stock Product Order">Stock Product Order</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Select Multiple -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectmultiple">Hospital Filter</label>
+            <div class="col-md-8">
+                <select class="form-control" multiple="multiple" ng-model="formObj.TopLevelFilterList">
+                    <option value="ABBEY SEFTON SUITE - Fazakerley Hospital">ABBEY SEFTON SUITE - Fazakerley Hospital</option>
+                    <option value="ADULT LEARNING DIFF EDINBURGH">ADULT LEARNING DIFF EDINBURGH</option>
+                    <option value="Aintree Diabetes Centre / Podiatry Department">Aintree Diabetes Centre / Podiatry Department</option>
+                    <option value="ALEXANDRA HOSPITAL">ALEXANDRA HOSPITAL</option>
+                    <option value="AMERSHAM HOSPITAL">AMERSHAM HOSPITAL</option>
+                    <option value="AMWELL VIEW SCHOOL CLINIC">AMWELL VIEW SCHOOL CLINIC</option>
+                    <option value="ANANSI NURSERY">ANANSI NURSERY</option>
+                    <option value="ASHFORD CLINIC">ASHFORD CLINIC</option>
+                    <option value="ASHURST CHILD &amp; FAIMLY CENTRE">ASHURST CHILD &amp; FAIMLY CENTRE</option>
+                    <option value="Ashworth Hospital">Ashworth Hospital</option>
+                    <option value="ASTLEY AINSLIE HOSPITAL">ASTLEY AINSLIE HOSPITAL</option>
+                    <option value="BARNET HOSPITAL">BARNET HOSPITAL</option>
+                    <option value="BERKELEY HOSPITAL">BERKELEY HOSPITAL</option>
+                    <option value="BOBATH CENTRE FOR CHILDREN [BBN]">BOBATH CENTRE FOR CHILDREN [BBN]</option>
+                    <option value="BOGNOR REGIS WAR MEMORIAL HOSPITAL">BOGNOR REGIS WAR MEMORIAL HOSPITAL</option>
+                    <option value="BORDERS GENERAL - PEEBLES PHYSIO DEPT">BORDERS GENERAL - PEEBLES PHYSIO DEPT</option>
+                    <option value="BORDERS GENERAL HOSPITAL">BORDERS GENERAL HOSPITAL</option>
+                    <option value="Breakspeare School">Breakspeare School</option>
+                    <option value="BRENT &amp; HARROW NHS HEALTH AUTHORITY">BRENT &amp; HARROW NHS HEALTH AUTHORITY</option>
+                    <option value="BROOMFIELD HOSPITAL">BROOMFIELD HOSPITAL</option>
+                    <option value="CAMELON HEALTH CLINIC - PHYSIO DEPT F H">CAMELON HEALTH CLINIC - PHYSIO DEPT F H</option>
+                    <option value="CARDIFF ALAC">CARDIFF ALAC</option>
+                    <option value="CHASE FARM HOSPITAL">CHASE FARM HOSPITAL</option>
+                    <option value="CHELTENHAM GENERAL HOSPITAL">CHELTENHAM GENERAL HOSPITAL</option>
+                    <option value="CHIPPENHAM COMMUNITY HOSPITAL">CHIPPENHAM COMMUNITY HOSPITAL</option>
+                    <option value="CIRENCESTER HOSPITAL">CIRENCESTER HOSPITAL</option>
+                    <option value="COMMUNITY PAEDIATRIC PHYSIOTHERAPY SERVICE">COMMUNITY PAEDIATRIC PHYSIOTHERAPY SERVICE</option>
+                    <option value="COUNTESS OF CHESTER HOSPITAL">COUNTESS OF CHESTER HOSPITAL</option>
+                    <option value="Doddington County Hospital">Doddington County Hospital</option>
+                    <option value="DONALD TODD REHABILITATION CENTRE F">DONALD TODD REHABILITATION CENTRE F</option>
+                    <option value="DORIN PARK SPECIAL SCHOOL">DORIN PARK SPECIAL SCHOOL</option>
+                    <option value="DOVER HEALTH CENTRE S">DOVER HEALTH CENTRE S</option>
+                    <option value="EAST SURREY HOSPITAL - LYCRA ONLY">EAST SURREY HOSPITAL - LYCRA ONLY</option>
+                    <option value="EAST SURREY HOSPITAL">EAST SURREY HOSPITAL</option>
+                    <option value="EDENHALL HOSPITAL">EDENHALL HOSPITAL</option>
+                    <option value="EDINBURGH ROYAL IMFIRMARY">EDINBURGH ROYAL IMFIRMARY</option>
+                    <option value="EDITH CAVELL HOSPITAL">EDITH CAVELL HOSPITAL</option>
+                    <option value="EDWARD STREET HOSPITAL">EDWARD STREET HOSPITAL</option>
+                    <option value="ELLESMERE PORT HOSPITAL">ELLESMERE PORT HOSPITAL</option>
+                    <option value="ERI DIABETIC CLINIC">ERI DIABETIC CLINIC</option>
+                    <option value="ERW'R DELYN SCHOOL">ERW'R DELYN SCHOOL</option>
+                    <option value="EVERSFIELD CENTRE FR H">EVERSFIELD CENTRE FR H</option>
+                    <option value="FARNHAM HOSPITAL (L - GUILDFORD)">FARNHAM HOSPITAL (L - GUILDFORD)</option>
+                    <option value="FARNHAM HOSPITAL (W - FRIMLEY)">FARNHAM HOSPITAL (W - FRIMLEY)</option>
+                    <option value="FAZAKERLEY HOSPITAL">FAZAKERLEY HOSPITAL</option>
+                    <option value="FLEET HOSPITAL">FLEET HOSPITAL</option>
+                    <option value="FOLKESTONE HEALTH CENTRE">FOLKESTONE HEALTH CENTRE</option>
+                    <option value="FOLKESTONE LYCRA CENTRE">FOLKESTONE LYCRA CENTRE</option>
+                    <option value="FOREST OF DEAN CLINIC">FOREST OF DEAN CLINIC</option>
+                    <option value="FRIMLEY PARK HOSPITAL">FRIMLEY PARK HOSPITAL</option>
+                    <option value="GLOUCESTER COMMUNITY LEARNING">GLOUCESTER COMMUNITY LEARNING</option>
+                    <option value="GLOUCESTER ROYAL HOSPITAL">GLOUCESTER ROYAL HOSPITAL</option>
+                    <option value="Good Hope Hospital">Good Hope Hospital</option>
+                    <option value="Gosport Hospital for Stressed Gentlefolk">Gosport Hospital for Stressed Gentlefolk</option>
+                    <option value="GREAT ORMOND ST HOSP CHILDREN">GREAT ORMOND ST HOSP CHILDREN</option>
+                    <option value="GREATER LONDON PRIVATE PATIENT ACCOUNT">GREATER LONDON PRIVATE PATIENT ACCOUNT</option>
+                    <option value="HAWICK HEALTH CENTRE">HAWICK HEALTH CENTRE</option>
+                    <option value="Heartlands Hospital">Heartlands Hospital</option>
+                    <option value="HEATHERWOOD HOSPITAL">HEATHERWOOD HOSPITAL</option>
+                    <option value="HEMEL HEMPSTEAD GENERAL HOSPITAL">HEMEL HEMPSTEAD GENERAL HOSPITAL</option>
+                    <option value="HERTS &amp; ESSEX HOSPITAL">HERTS &amp; ESSEX HOSPITAL</option>
+                    <option value="HIGHBURY HOSPITAL">HIGHBURY HOSPITAL</option>
+                    <option value="HILL HOUSE HOSPITAL">HILL HOUSE HOSPITAL</option>
+                    <option value="HOLIES SCHOOL">HOLIES SCHOOL</option>
+                    <option value="HOMERTON HOSPITAL">HOMERTON HOSPITAL</option>
+                    <option value="ISLINGTON FINSBURY FOOTWEAR">ISLINGTON FINSBURY FOOTWEAR</option>
+                    <option value="JAMES PAGET HOSPITAL">JAMES PAGET HOSPITAL</option>
+                    <option value="KENT &amp; CANTERBURY HOSPITAL">KENT &amp; CANTERBURY HOSPITAL</option>
+                    <option value="KING EDWARD VII HOSP">KING EDWARD VII HOSP</option>
+                    <option value="KING GEORGE HOSPITAL">KING GEORGE HOSPITAL</option>
+                    <option value="KINGFISHER CENTRE">KINGFISHER CENTRE</option>
+                    <option value="KINGSBURY HOSPITAL">KINGSBURY HOSPITAL</option>
+                    <option value="LIBERTON HOSPITAL">LIBERTON HOSPITAL</option>
+                    <option value="LLANDOUGH CHILDRENS CENTRE">LLANDOUGH CHILDRENS CENTRE</option>
+                    <option value="LLANDOUGH HOSPITAL ORTHOTIC DEPARTMENT">LLANDOUGH HOSPITAL ORTHOTIC DEPARTMENT</option>
+                    <option value="Manchester Foot Hospital">Manchester Foot Hospital</option>
+                    <option value="MAPLEDOWN SCHOOL">MAPLEDOWN SCHOOL</option>
+                    <option value="MARY SHERIDAN CENTRE">MARY SHERIDAN CENTRE</option>
+                    <option value="MEADOW WOOD SCHOOL">MEADOW WOOD SCHOOL</option>
+                    <option value="MIDLANDS PRIVATE PATIENT ACCOUNT">MIDLANDS PRIVATE PATIENT ACCOUNT</option>
+                    <option value="MILESTONE SCHOOL">MILESTONE SCHOOL</option>
+                    <option value="MILFORD ON SEA MEMORIAL HOSPITAL">MILFORD ON SEA MEMORIAL HOSPITAL</option>
+                    <option value="MOORE COTTAGE HOSPITAL">MOORE COTTAGE HOSPITAL</option>
+                    <option value="MORETON HOSPITAL">MORETON HOSPITAL</option>
+                    <option value="MTT Clinic 2 (new account numbe)">MTT Clinic 2 (new account numbe)</option>
+                    <option value="NEWHAM COMMUNITY HEALTH">NEWHAM COMMUNITY HEALTH</option>
+                    <option value="NORTH MIDDLESEX HOSPITAL">NORTH MIDDLESEX HOSPITAL</option>
+                    <option value="NORTHERN PRIVATE PATIENT ACCOUNT">NORTHERN PRIVATE PATIENT ACCOUNT</option>
+                    <option value="OAKLANDS SCHOOL">OAKLANDS SCHOOL</option>
+                    <option value="OAKLEIGH SCHOOL">OAKLEIGH SCHOOL</option>
+                    <option value="PALMERSTON SCHOOL">PALMERSTON SCHOOL</option>
+                    <option value="PRINCESS ALEXANDRA HOSPITAL">PRINCESS ALEXANDRA HOSPITAL</option>
+                    <option value="PRINCESS LOUISE HOSPITAL">PRINCESS LOUISE HOSPITAL</option>
+                    <option value="QUEENS HOSPITAL">QUEENS HOSPITAL</option>
+                    <option value="Redruth">Redruth</option>
+                    <option value="RESEARCH &amp; DEVELOPMENT">RESEARCH &amp; DEVELOPMENT</option>
+                    <option value="RIPLEY HOSPITAL">RIPLEY HOSPITAL</option>
+                    <option value="ROB JONES &amp; AGNES HUNT">ROB JONES &amp; AGNES HUNT</option>
+                    <option value="ROODLANDS HOSPITAL">ROODLANDS HOSPITAL</option>
+                    <option value="ROOKWOOD HOSPITAL ALAC F">ROOKWOOD HOSPITAL ALAC F</option>
+                    <option value="ROYAL HOSPITAL FOR SICK KIDS">ROYAL HOSPITAL FOR SICK KIDS</option>
+                    <option value="ROYAL UNITED HOSPITAL">ROYAL UNITED HOSPITAL</option>
+                    <option value="RYE COMMUNITY CLINIC">RYE COMMUNITY CLINIC</option>
+                    <option value="SHEPPEY COMMUNITY HOSPITAL">SHEPPEY COMMUNITY HOSPITAL</option>
+                    <option value="Solihull Hospital">Solihull Hospital</option>
+                    <option value="SOUTH CENTRAL PRIVATE PATIENT ACCOUNT">SOUTH CENTRAL PRIVATE PATIENT ACCOUNT</option>
+                    <option value="SOUTH PEMBROKESHIRE HOSPITAL">SOUTH PEMBROKESHIRE HOSPITAL</option>
+                    <option value="SOUTHERN GENERAL HOSPITAL">SOUTHERN GENERAL HOSPITAL</option>
+                    <option value="SOUTHLANDS HOSPITAL">SOUTHLANDS HOSPITAL</option>
+                    <option value="ST ALBANS CITY HOSPITAL">ST ALBANS CITY HOSPITAL</option>
+                    <option value="ST ANNS HOSPITAL">ST ANNS HOSPITAL</option>
+                    <option value="ST DAVIDS - LYCRA ONLY">ST DAVIDS - LYCRA ONLY</option>
+                    <option value="ST DAVIDS CHILDRENS CENTRE">ST DAVIDS CHILDRENS CENTRE</option>
+                    <option value="ST JOHNS HOSPITAL">ST JOHNS HOSPITAL</option>
+                    <option value="ST MARGARETS HOSPITAL">ST MARGARETS HOSPITAL</option>
+                    <option value="ST MARKS HOSPITAL">ST MARKS HOSPITAL</option>
+                    <option value="ST MARYS SCHOOL">ST MARYS SCHOOL</option>
+                    <option value="ST OSWALDS HOSPITAL">ST OSWALDS HOSPITAL</option>
+                    <option value="ST PETERS HOSPITAL">ST PETERS HOSPITAL</option>
+                    <option value="ST ROSES SPECIAL SCHOOL">ST ROSES SPECIAL SCHOOL</option>
+                    <option value="Stamford community Hospital">Stamford community Hospital</option>
+                    <option value="STAMFORD HOSPITAL">STAMFORD HOSPITAL</option>
+                    <option value="STIRLING ROYAL INFIRMARY">STIRLING ROYAL INFIRMARY</option>
+                    <option value="Stockport NHS Foundation Trust - paediatric">Stockport NHS Foundation Trust - paediatric</option>
+                    <option value="Stockport NHS Foundation Trust">Stockport NHS Foundation Trust</option>
+                    <option value="STOKE MANDEVILLE HOSPITAL S">STOKE MANDEVILLE HOSPITAL S</option>
+                    <option value="STROUD GENERAL HOSPITAL">STROUD GENERAL HOSPITAL</option>
+                    <option value="SUFFOLK WEST Child Development Centre">SUFFOLK WEST Child Development Centre</option>
+                    <option value="SURREY OAKLANDS HOSPITAL">SURREY OAKLANDS HOSPITAL</option>
+                    <option value="SWANSEA ALAC">SWANSEA ALAC</option>
+                    <option value="TAMESIDE GENERAL HOSPITAL">TAMESIDE GENERAL HOSPITAL</option>
+                    <option value="TEDDINGTON MEMORIAL HOSPITAL">TEDDINGTON MEMORIAL HOSPITAL</option>
+                    <option value="TEWKESBURY HOSPITAL">TEWKESBURY HOSPITAL</option>
+                    <option value="The County Hospital - Hereford">The County Hospital - Hereford</option>
+                    <option value="THE COUNTY HOSPITAL">THE COUNTY HOSPITAL</option>
+                    <option value="The National Hospital for Neurology &amp; Neurosurgery">The National Hospital for Neurology &amp; Neurosurgery</option>
+                    <option value="THE ROYAL FREE HOSPITAL">THE ROYAL FREE HOSPITAL</option>
+                    <option value="THE ROYAL ORTHOPAEDIC HOSPITAL - BIRMINGHAM">THE ROYAL ORTHOPAEDIC HOSPITAL - BIRMINGHAM</option>
+                    <option value="THE ROYAL SCHOOL FOR THE BLIND">THE ROYAL SCHOOL FOR THE BLIND</option>
+                    <option value="TORAD - (Private Patients)">TORAD - (Private Patients)</option>
+                    <option value="TORBAY HOSPITAL">TORBAY HOSPITAL</option>
+                    <option value="TY GWYN SCHOOL">TY GWYN SCHOOL</option>
+                    <option value="UNIVERSITY COLLEGE LONDON HOSPITALS">UNIVERSITY COLLEGE LONDON HOSPITALS</option>
+                    <option value="VICTORIA DEAL WALMER WAR MEM">VICTORIA DEAL WALMER WAR MEM</option>
+                    <option value="VICTORIA INFIRMARY">VICTORIA INFIRMARY</option>
+                    <option value="WALES &amp; SOUTH WEST PRIVATE PATIENT ACCOUNT">WALES &amp; SOUTH WEST PRIVATE PATIENT ACCOUNT</option>
+                    <option value="WALTON CENTRE - OTHOTIC SERVICES">WALTON CENTRE - OTHOTIC SERVICES</option>
+                    <option value="Watford General Hospital">Watford General Hospital</option>
+                    <option value="Waverley School">Waverley School</option>
+                    <option value="WEST MIDDLESEX UNIVERSITY HOSPITAL NHS TRUST-STOCK SALES">WEST MIDDLESEX UNIVERSITY HOSPITAL NHS TRUST-STOCK SALES</option>
+                    <option value="WEST MIDDLESEX UNIVERSITY HOSPITAL NHS TRUST">WEST MIDDLESEX UNIVERSITY HOSPITAL NHS TRUST</option>
+                    <option value="WESTERN GENERAL HOSPITAL">WESTERN GENERAL HOSPITAL</option>
+                    <option value="WEXHAM PARK HOSPITAL - Plaster Room">WEXHAM PARK HOSPITAL - Plaster Room</option>
+                    <option value="WEXHAM PARK HOSPITAL">WEXHAM PARK HOSPITAL</option>
+                    <option value="WITHYBUSH GENERAL HOSPITAL (ADULT)">WITHYBUSH GENERAL HOSPITAL (ADULT)</option>
+                    <option value="WITHYBUSH GENERAL HOSPITAL (PAED)">WITHYBUSH GENERAL HOSPITAL (PAED)</option>
+                    <option value="WORTHING HOSPITAL">WORTHING HOSPITAL</option>
+                    <option value="YORKHILL HOSPITAL">YORKHILL HOSPITAL</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Select Multiple -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectmultiple">Orthotist Filter</label>
+            <div class="col-md-8">
+                <select class="form-control" multiple="multiple" ng-model="formObj.TopLevelFilterList">
+                    <option value="Admin">Admin</option>
+                    <option value="Aintree">Aintree</option>
+                    <option value="Alam Shah">Alam Shah</option>
+                    <option value="Alan Ditchfield">Alan Ditchfield</option>
+                    <option value="Alan Hews">Alan Hews</option>
+                    <option value="Andrew Frame">Andrew Frame</option>
+                    <option value="Andrew Morris">Andrew Morris</option>
+                    <option value="Andrew Ockendon">Andrew Ockendon</option>
+                    <option value="Andy Budgen">Andy Budgen</option>
+                    <option value="Angila Foster">Angila Foster</option>
+                    <option value="April Matthew - Left">April Matthew - Left</option>
+                    <option value="April Matthews">April Matthews</option>
+                    <option value="Ashley Lewis">Ashley Lewis</option>
+                    <option value="BCH">BCH</option>
+                    <option value="BCH Direct">BCH Direct</option>
+                    <option value="BCH Physio">BCH Physio</option>
+                    <option value="Bill Quinn">Bill Quinn</option>
+                    <option value="Borders">Borders</option>
+                    <option value="Bracken Pluckrose">Bracken Pluckrose</option>
+                    <option value="Brian Bradley">Brian Bradley</option>
+                    <option value="Brian Yorke">Brian Yorke</option>
+                    <option value="Catherine Yeardley">Catherine Yeardley</option>
+                    <option value="Christine McEachran - Left">Christine McEachran - Left</option>
+                    <option value="Colette Harkins">Colette Harkins</option>
+                    <option value="Collette Bradford">Collette Bradford</option>
+                    <option value="Collette Glossop">Collette Glossop</option>
+                    <option value="Conor McDaid">Conor McDaid</option>
+                    <option value="Corinne Fletcher">Corinne Fletcher</option>
+                    <option value="Corinne Warburton">Corinne Warburton</option>
+                    <option value="Corrin Glenn -Left">Corrin Glenn -Left</option>
+                    <option value="Dave Munn">Dave Munn</option>
+                    <option value="David Buchanan">David Buchanan</option>
+                    <option value="David Hall">David Hall</option>
+                    <option value="Debbie Lee">Debbie Lee</option>
+                    <option value="Deborah Presswood">Deborah Presswood</option>
+                    <option value="Des Reid">Des Reid</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Donna Munro">Donna Munro</option>
+                    <option value="Edith Adabie-Lewis">Edith Adabie-Lewis</option>
+                    <option value="Edith Cleaver">Edith Cleaver</option>
+                    <option value="Elaine Nelson">Elaine Nelson</option>
+                    <option value="Elizabeth Berry">Elizabeth Berry</option>
+                    <option value="Esther Walker">Esther Walker</option>
+                    <option value="Faye Dearden">Faye Dearden</option>
+                    <option value="Faye Pitt">Faye Pitt</option>
+                    <option value="Frank Crewdson">Frank Crewdson</option>
+                    <option value="Georgina Fox- Left">Georgina Fox- Left</option>
+                    <option value="Gillian Woddel">Gillian Woddel</option>
+                    <option value="Gloucester">Gloucester</option>
+                    <option value="Gordon Lindsay">Gordon Lindsay</option>
+                    <option value="Heather Skinner-Left">Heather Skinner-Left</option>
+                    <option value="Helen Edge-Left">Helen Edge-Left</option>
+                    <option value="Helen Montgomery">Helen Montgomery</option>
+                    <option value="Ian Jakins">Ian Jakins</option>
+                    <option value="Ian Parks">Ian Parks</option>
+                    <option value="Izzet Ozbilenler">Izzet Ozbilenler</option>
+                    <option value="James Wall2">James Wall2</option>
+                    <option value="Jeanette Wilkinson">Jeanette Wilkinson</option>
+                    <option value="Jo Davies">Jo Davies</option>
+                    <option value="John Clark">John Clark</option>
+                    <option value="John Dunne">John Dunne</option>
+                    <option value="John Gawthorpe">John Gawthorpe</option>
+                    <option value="John Tebbutt">John Tebbutt</option>
+                    <option value="Jonathan BELL">Jonathan BELL</option>
+                    <option value="Jonathan BULL">Jonathan BULL</option>
+                    <option value="Jonathan TEBBUTT">Jonathan TEBBUTT</option>
+                    <option value="Kate Clegg">Kate Clegg</option>
+                    <option value="Kate Hopthrow">Kate Hopthrow</option>
+                    <option value="Katie Horne">Katie Horne</option>
+                    <option value="Katie Pace">Katie Pace</option>
+                    <option value="Katie Prosser">Katie Prosser</option>
+                    <option value="Katie Ryder">Katie Ryder</option>
+                    <option value="Kaylie Travis">Kaylie Travis</option>
+                    <option value="Laura Nicholls">Laura Nicholls</option>
+                    <option value="Leslie Smith">Leslie Smith</option>
+                    <option value="Lily Lee">Lily Lee</option>
+                    <option value="Lindsay King">Lindsay King</option>
+                    <option value="Lindsay Nolan">Lindsay Nolan</option>
+                    <option value="Lisa Bellows">Lisa Bellows</option>
+                    <option value="Lisa Mitchell">Lisa Mitchell</option>
+                    <option value="Locum UK1">Locum UK1</option>
+                    <option value="Locum UK2">Locum UK2</option>
+                    <option value="Locum UK3">Locum UK3</option>
+                    <option value="Locum UK4">Locum UK4</option>
+                    <option value="Locum UK5">Locum UK5</option>
+                    <option value="Lyndsay Forbes">Lyndsay Forbes</option>
+                    <option value="Mags Osborne">Mags Osborne</option>
+                    <option value="Mandy Ball">Mandy Ball</option>
+                    <option value="Mandy Nash">Mandy Nash</option>
+                    <option value="Maria Beckles">Maria Beckles</option>
+                    <option value="Mark Bramhall">Mark Bramhall</option>
+                    <option value="Martin Matthews - Left">Martin Matthews - Left</option>
+                    <option value="Martin Peel">Martin Peel</option>
+                    <option value="Maung Htoon - Left">Maung Htoon - Left</option>
+                    <option value="Melanie Brooks">Melanie Brooks</option>
+                    <option value="Melanie Sharp">Melanie Sharp</option>
+                    <option value="Mhairi Friel">Mhairi Friel</option>
+                    <option value="Michael Richardson">Michael Richardson</option>
+                    <option value="Mike Ferry">Mike Ferry</option>
+                    <option value="Miles Dearden">Miles Dearden</option>
+                    <option value="Mohammed Nasseer">Mohammed Nasseer</option>
+                    <option value="Natalie Jessop">Natalie Jessop</option>
+                    <option value="Nicola Saxelby">Nicola Saxelby</option>
+                    <option value="Nigel Jones">Nigel Jones</option>
+                    <option value="Norfolk Norwich">Norfolk Norwich</option>
+                    <option value="Patitta Ussawapornphisan">Patitta Ussawapornphisan</option>
+                    <option value="Patricia McCotter">Patricia McCotter</option>
+                    <option value="Paul Beattie">Paul Beattie</option>
+                    <option value="Paul Outred">Paul Outred</option>
+                    <option value="Rahul Shanker - Left">Rahul Shanker - Left</option>
+                    <option value="Rea Cowley">Rea Cowley</option>
+                    <option value="Rebecca Fall">Rebecca Fall</option>
+                    <option value="Redruth">Redruth</option>
+                    <option value="Rehana Ali">Rehana Ali</option>
+                    <option value="Roger Hamlet">Roger Hamlet</option>
+                    <option value="Roger Sawyer">Roger Sawyer</option>
+                    <option value="ROH">ROH</option>
+                    <option value="ROH Admin">ROH Admin</option>
+                    <option value="ROH Podiatry">ROH Podiatry</option>
+                    <option value="Sarah Hendy">Sarah Hendy</option>
+                    <option value="Session Fees">Session Fees</option>
+                    <option value="Shachar Greener">Shachar Greener</option>
+                    <option value="Shaneez Khan">Shaneez Khan</option>
+                    <option value="Simon Dickinson - Left">Simon Dickinson - Left</option>
+                    <option value="Simon Ellis">Simon Ellis</option>
+                    <option value="Sophia Kauser">Sophia Kauser</option>
+                    <option value="Stephanie Anstiss">Stephanie Anstiss</option>
+                    <option value="Steve Foster">Steve Foster</option>
+                    <option value="Stockport">Stockport</option>
+                    <option value="Stockport Admin">Stockport Admin</option>
+                    <option value="Test Orthotist">Test Orthotist</option>
+                    <option value="Thomas Ramsay">Thomas Ramsay</option>
+                    <option value="Tracey Rhodes">Tracey Rhodes</option>
+                    <option value="Verna Bentley">Verna Bentley</option>
+                    <option value="Wendy Newton">Wendy Newton</option>
+                    <option value="Werner Sonnendecker - Left">Werner Sonnendecker - Left</option>
+                    <option value="West Hertfordshire">West Hertfordshire</option>
+                    <option value="West Middlesex">West Middlesex</option>
+                    <option value="Wye Valley">Wye Valley</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectbasic">Start Date</label>
+            <div class="col-md-5">
+                <select  class="form-control" ng-model="formObj.StartDate">
+                    <option value="APR - 2011">APR - 2011</option>
+                    <option value="MAY - 2011">MAY - 2011</option>
+                    <option value="JUN - 2011">JUN - 2011</option>
+                    <option value="JUL - 2011">JUL - 2011</option>
+                    <option value="AUG - 2011">AUG - 2011</option>
+                    <option value="SEP - 2011">SEP - 2011</option>
+                    <option value="OCT - 2011">OCT - 2011</option>
+                    <option value="NOV - 2011">NOV - 2011</option>
+                    <option value="DEC - 2011">DEC - 2011</option>
+                    <option value="JAN - 2012">JAN - 2012</option>
+                    <option value="FEB - 2012">FEB - 2012</option>
+                    <option value="MAR - 2012">MAR - 2012</option>
+                    <option value="APR - 2012">APR - 2012</option>
+                    <option value="MAY - 2012">MAY - 2012</option>
+                    <option value="JUN - 2012">JUN - 2012</option>
+                    <option value="JUL - 2012">JUL - 2012</option>
+                    <option value="AUG - 2012">AUG - 2012</option>
+                    <option value="SEP - 2012">SEP - 2012</option>
+                    <option value="OCT - 2012">OCT - 2012</option>
+                    <option value="NOV - 2012">NOV - 2012</option>
+                    <option value="DEC - 2012">DEC - 2012</option>
+                    <option value="JAN - 2013">JAN - 2013</option>
+                    <option value="FEB - 2013">FEB - 2013</option>
+                    <option value="MAR - 2013">MAR - 2013</option>
+                    <option value="APR - 2013">APR - 2013</option>
+                    <option value="MAY - 2013">MAY - 2013</option>
+                    <option value="JUN - 2013">JUN - 2013</option>
+                    <option value="JUL - 2013">JUL - 2013</option>
+                    <option value="AUG - 2013">AUG - 2013</option>
+                    <option value="SEP - 2013">SEP - 2013</option>
+                    <option value="OCT - 2013">OCT - 2013</option>
+                    <option value="NOV - 2013">NOV - 2013</option>
+                    <option value="DEC - 2013">DEC - 2013</option>
+                    <option value="JAN - 2014">JAN - 2014</option>
+                    <option value="FEB - 2014">FEB - 2014</option>
+                    <option value="MAR - 2014">MAR - 2014</option>
+                    <option value="APR - 2014">APR - 2014</option>
+                    <option value="MAY - 2014">MAY - 2014</option>
+                    <option value="JUN - 2014">JUN - 2014</option>
+                    <option value="JUL - 2014">JUL - 2014</option>
+                    <option value="AUG - 2014">AUG - 2014</option>
+                    <option value="SEP - 2014">SEP - 2014</option>
+                    <option value="OCT - 2014">OCT - 2014</option>
+                    <option value="NOV - 2014">NOV - 2014</option>
+                    <option value="DEC - 2014">DEC - 2014</option>
+                    <option value="JAN - 2015">JAN - 2015</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectbasic">End Date</label>
+            <div class="col-md-5">
+                <select class="form-control" ng-model="formObj.EndDate">
+                    <option value="APR - 2011">APR - 2011</option>
+                    <option value="MAY - 2011">MAY - 2011</option>
+                    <option value="JUN - 2011">JUN - 2011</option>
+                    <option value="JUL - 2011">JUL - 2011</option>
+                    <option value="AUG - 2011">AUG - 2011</option>
+                    <option value="SEP - 2011">SEP - 2011</option>
+                    <option value="OCT - 2011">OCT - 2011</option>
+                    <option value="NOV - 2011">NOV - 2011</option>
+                    <option value="DEC - 2011">DEC - 2011</option>
+                    <option value="JAN - 2012">JAN - 2012</option>
+                    <option value="FEB - 2012">FEB - 2012</option>
+                    <option value="MAR - 2012">MAR - 2012</option>
+                    <option value="APR - 2012">APR - 2012</option>
+                    <option value="MAY - 2012">MAY - 2012</option>
+                    <option value="JUN - 2012">JUN - 2012</option>
+                    <option value="JUL - 2012">JUL - 2012</option>
+                    <option value="AUG - 2012">AUG - 2012</option>
+                    <option value="SEP - 2012">SEP - 2012</option>
+                    <option value="OCT - 2012">OCT - 2012</option>
+                    <option value="NOV - 2012">NOV - 2012</option>
+                    <option value="DEC - 2012">DEC - 2012</option>
+                    <option value="JAN - 2013">JAN - 2013</option>
+                    <option value="FEB - 2013">FEB - 2013</option>
+                    <option value="MAR - 2013">MAR - 2013</option>
+                    <option value="APR - 2013">APR - 2013</option>
+                    <option value="MAY - 2013">MAY - 2013</option>
+                    <option value="JUN - 2013">JUN - 2013</option>
+                    <option value="JUL - 2013">JUL - 2013</option>
+                    <option value="AUG - 2013">AUG - 2013</option>
+                    <option value="SEP - 2013">SEP - 2013</option>
+                    <option value="OCT - 2013">OCT - 2013</option>
+                    <option value="NOV - 2013">NOV - 2013</option>
+                    <option value="DEC - 2013">DEC - 2013</option>
+                    <option value="JAN - 2014">JAN - 2014</option>
+                    <option value="FEB - 2014">FEB - 2014</option>
+                    <option value="MAR - 2014">MAR - 2014</option>
+                    <option value="APR - 2014">APR - 2014</option>
+                    <option value="MAY - 2014">MAY - 2014</option>
+                    <option value="JUN - 2014">JUN - 2014</option>
+                    <option value="JUL - 2014">JUL - 2014</option>
+                    <option value="AUG - 2014">AUG - 2014</option>
+                    <option value="SEP - 2014">SEP - 2014</option>
+                    <option value="OCT - 2014">OCT - 2014</option>
+                    <option value="NOV - 2014">NOV - 2014</option>
+                    <option value="DEC - 2014">DEC - 2014</option>
+                    <option value="JAN - 2015">JAN - 2015</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Multiple Checkboxes (inline) -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="checkboxes"></label>
+            <div class="col-md-4">
+                <label class="checkbox-inline" for="checkboxes-0">
+                    <input type="checkbox"  value="true" ng-model="formObj.Cache">
+                    Cache
+                </label>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Report Title</label>
+            <div class="col-md-6">
+                <input id="textinput" name="textinput" type="text" placeholder="Report TItle" class="form-control input-md" ng-model="formObj.ReportTitle">
+
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="postQuery()">Query</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+<p>{{result | json }}</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/controllers/app.js"></script>
+<script src="js/services/domino.js"></script>
+
+</body>
+</html>
